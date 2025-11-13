@@ -98,10 +98,6 @@ a {
     height: 24px;
 
 
-
-
-
-
 }
 
 .section .header .inner .inner-01 .logo a {
@@ -209,6 +205,9 @@ a {
 
 .section .my-page .main_visual {}
 
+.section .my-page .main_visual .slide_list {}
+
+
 
 .swiper-button-next::after,
 .swiper-button-prev::after {
@@ -236,9 +235,17 @@ a {
     font-size: 22px;
 }
 
+.section .my-page .main_visual .slide_list .swiper .swiper-wrapper .swiper-slide {
+    width: 100%;
+    height: 100vh;
+}
+
 .section .my-page .main_visual .slide_list .swiper .swiper-wrapper .swiper-slide img {
     display: block;
     width: 100%;
+    height: 100%;
+    object-fit: cover;
+
 }
 
 .section .my-page .section-01 {
@@ -272,6 +279,11 @@ a {
     padding-bottom: 100px;
 }
 
+.swiper-pagination-bullet-active {
+    background:  var(--swiper-pagination-color, #f5f5f516);
+    border: 1.5px solid #ffffff8c;
+}
+
 .section-01 .swiper .swiper-wrapper {
     padding-top: 280px;
 }
@@ -287,7 +299,9 @@ a {
 }
 
 
-.section-01 .swiper .slide-bg {}
+.section-01 .swiper .slide-bg {
+    overflow: hidden;
+}
 
 .section-01 .swiper .slide-bg img {
     width: 100%;
@@ -296,8 +310,9 @@ a {
     top: 0;
     left: 0;
     object-fit: cover;
-
+    display: block;
     filter: blur(4px);
+    transform: scale(1.05);
 
 }
 
@@ -401,7 +416,7 @@ a {
 
 .section-02 .inner .images {
     width: 100%;
-    height: 588px;
+    height: 100%;
 
 }
 
@@ -436,9 +451,12 @@ a {
 }
 
 .section-02 .inner .list .item-list {
-    display: flex;
-    gap: 20px;
-    overflow-x: auto;
+   
+}
+
+.section-02 .inner .list .item-list .swiper-slide{
+    width: 350px;
+    flex-shrink: 0; 
 }
 
 .section-02 .inner .list .item-list::-webkit-scrollbar {
@@ -605,11 +623,11 @@ h1 {
     overflow: hidden;
 }
 
-.section-04 .inner .item a.image:hover img {
+.section-04 .inner .item:hover a.image img {
     border-radius: 15rem 0 5rem 0;
 }
 
-.section-04 .inner .item a.image:hover::before {
+.section-04 .inner .item:hover a.image::before {
     opacity: 1;
     transform: scale(1);
 }
@@ -639,7 +657,7 @@ h1 {
     /* 아이콘(::before)보다 아래로 */
 }
 
-.section-04 .inner .item a.image:hover::after {
+.section-04 .inner .item:hover a.image::after {
     background: rgba(0, 0, 0, 0.369);
 }
 

@@ -14,6 +14,8 @@
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
+
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
         integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -25,11 +27,8 @@
 
     <script>
         $(function () {
-
-
             let section = $('.section-01');
-            let bgWrap = section.find('.slide-bg img'); // 배경 이미지
-
+            let bgWrap = section.find('.slide-bg img'); //배경 이미지
 
             var swiper = new Swiper(".sec01-mySwiper", {
                 effect: "coverflow",
@@ -70,19 +69,19 @@
                     },
 
                     slideChange: function () {
-                        const swiper = this; // 현재 swiper 객체
+                        const swiper = this; //현재 swiper 객체
                         const activeIndex = swiper.activeIndex;
 
-                        // 현재 활성 슬라이드의 이미지 경로
+                        //현재 활성 슬라이드의 이미지 경로
                         const activeImg = $(swiper.slides[activeIndex]).find('img').attr('src');
 
-                        // section-01 범위 안에서 .slide-bg img를 찾아 전환
+                        //section-01 범위 안에서 .slide-bg img를 찾아 전환
                         let section = $('.section-01');
                         let bgImg = section.find('.slide-bg img');
 
                         bgImg.removeClass('on');
 
-                        // 이미지 교체 후 잠시 뒤 on 클래스 추가 (자연스러운 전환)
+                        //이미지 교체 후 잠시 뒤 on 클래스 추가=자연스러운 전환
                         bgImg.attr('src', activeImg);
                         setTimeout(() => {
                             bgImg.addClass('on');
@@ -97,31 +96,31 @@
         });
 
         $(function () {
-            // 각 item-img의 원래 src 저장
+            //각 item-img의 원래 src 저장
             $('.section-02 .item').each(function () {
                 const img = $(this).find('.item-img');
                 img.attr('data-default', img.attr('src'));
             });
 
-            // 외부 이미지의 원래 src 저장
+            //외부 이미지의 원래 src 저장
             const otherImg = $('.section-02 .other-img');
             otherImg.attr('data-default', otherImg.attr('src'));
 
-            // hover 이벤트
+            //hover 이벤트
             $('.section-02 .item').hover(
                 function () {
-                    // 마우스 올렸을 때
+                    //마우스 올렸을 때
                     const selfImg = $(this).data('img');
                     const otherSrc = $(this).data('other');
 
-                    // 내부 이미지 변경
+                    //내부 이미지 변경
                     $(this).find('.item-img').attr('src', selfImg);
 
-                    // 외부 이미지 변경
+                    //외부 이미지 변경
                     otherImg.attr('src', otherSrc);
                 },
                 function () {
-                    // 마우스 떠났을 때 원래 이미지로 복귀
+                    //마우스 떠났을때 원래 이미지로 복귀
                     const img = $(this).find('.item-img');
 
                     img.attr('src', img.attr('data-default'));
@@ -164,30 +163,30 @@
                 var image = parallax_trigger.querySelector("img");
                 var second_section = parallax_trigger.querySelector("[second_section]");
                 let tl = gsap.timeline({
-                    // yes, we can add it to an entire timeline!
+
                     scrollTrigger: {
                         trigger: parallax_trigger,
                         pinSpacing: true,
-                        pin: true, // pin the trigger element while active
-                        start: "center center", // when the center of the trigger hits the center of the viewport
+                        pin: true,
+                        start: "center center",
                         end: () => "+=" + parallax_trigger.offsetHeight * 1.2,
-                        scrub: 3, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar
+                        scrub: 3,
                     },
                     defaults: {
 
                     },
                 });
 
-                /* ANIMATION */
+
                 tl.fromTo(
                     image,
                     {
-                        scale: 0.8,                  // 👈 처음엔 살짝 작게 시작
+                        scale: 0.8,                  //처음엔 살짝 작게 시작
                     },
                     {
-                        scale: 1.05,                 // 👈 천천히 확대 (자연스러운 줌인)
+                        scale: 1.05,                 //천천히 확대 (자연스러운 줌인)
                         ease: "power3.out",
-                        duration: 6,                 // 👈 느리게 (4초 동안)
+                        duration: 6,                 //느리게 (4초 동안)
                     },
                     "Start"
                 );
@@ -195,12 +194,12 @@
                 tl.fromTo(
                     parallax_section,
                     {
-                        clipPath: "inset(30% 35%)",  // 👈 처음엔 살짝 잘린 프레임
+                        clipPath: "inset(30% 35%)",  //처음엔 살짝 잘린 프레임
                     },
                     {
-                        clipPath: "inset(0% 0%)",    // 👈 점점 전체가 드러나며 열림
+                        clipPath: "inset(0% 0%)",    //점점 전체가 드러나며 열림
                         ease: "power2.out",
-                        duration: 5,                 // 👈 천천히 열리는 속도
+                        duration: 5,                 //천천히 열리는 속도
                     },
                     "Start"
                 );
@@ -222,6 +221,16 @@
                     3
                 );
 
+            });
+
+            var swiper = new Swiper(".sec02-mySwiper", {
+                slidesPerView: "auto",
+                spaceBetween: 30,
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
+           
             });
 
 
@@ -339,7 +348,7 @@
                             </div><!-- .swiper-slide end -->
 
                             <div class="swiper-slide">
-                                <img src="img/night_.png" alt="night">
+                                <img src="img/header_2.jpg" alt="night">
                                 <div class="text">
                                     <h2>Where Reflections Shape the Night –FE 16-35mm F2.8 GM II</h2>
                                     <p> 도시의 빛이 반영된 순간, 섬세한 디테일로 기록하다</p>
@@ -347,7 +356,7 @@
                             </div><!-- .swiper-slide end -->
 
                             <div class="swiper-slide">
-                                <img src="img/audio_.png" alt="audio">
+                                <img src="img/header3.jpg" alt="audio">
                                 <div class="text">
                                     <h2>Every Note, Perfectly Yours – WH-1000XM6</h2>
                                     <p>마치 한 편의 영화처럼, 멜로디가 마음을 채우는 순간</p>
@@ -494,8 +503,6 @@
 
             </section><!-- section-01 end -->
 
-
-
             <section class="section-02">
                 <div class="inner">
                     <div class="box">
@@ -505,52 +512,102 @@
                         </div>
                     </div>
 
-
                     <div class="list">
                         <div class="title">
                             <h4>New Innovations</h4>
                             <span>당신의 일상을 특별하게 해줄 소니 제품을 만나보세요</span>
                         </div><!-- .title end -->
 
-                        <div class="item-list">
+                        <div class="swiper sec02-mySwiper">
+                            <div class="swiper-wrapper item-list">
+                                <div class="swiper-slide">
+                                    <div class="item" data-img="img/a1hover.png" data-other="img/item1_other.png">
+                                        <img class="item-img" src="img/a1.png" alt="항목1 이미지">
+                                        <div class="text">
+                                            <span>The Perfect 1</span>
+                                            <p>α1 II</p>
+                                        </div><!-- .text end -->
+                                    </div>
+                                </div><!-- .swiper-slide  -->
+                                <div class="swiper-slide">
+                                    <div class="item" data-img="img/50150hover.png" data-other="img/50150other.jpg">
+                                        <img class="item-img" src="img/50150.png" alt="항목1 이미지">
+                                        <div class="text">
+                                            <span>F2.0 한계를 뛰어넘다</span>
+                                            <p>SEL50150GM</p>
+                                        </div><!-- .text end -->
+                                    </div>
+                                </div><!-- .swiper-slide  -->
+                                <div class="swiper-slide">
+                                    <div class="item" data-img="img/whhover.png" data-other="img/whother.jpg">
+                                        <img class="item-img" src="img/wh.png" alt="항목1 이미지">
+                                        <div class="text">
+                                            <span>나를 높이자 캠페인 실시 중!</span>
+                                            <p>WH-1000XM6</p>
+                                        </div><!-- .text end -->
+                                    </div>
+                                </div><!-- .swiper-slide  -->
+                                <div class="swiper-slide">
+                                    <div class="item" data-img="img/a7c2hover.png" data-other="img/a7c2other.jpg">
+                                        <img class="item-img" src="img/a7c2.png" alt="항목1 이미지">
+                                        <div class="text">
+                                            <span>원핸드 컴팩트 풀프레임</span>
+                                            <p>ILCE-7CM2</p>
+                                        </div><!-- .text end -->
+                                    </div>
+                                </div><!-- .swiper-slide  -->
+                                <div class="swiper-slide">
+                                    <div class="item" data-img="img/1618hover.png" data-other="img/1618other.jpg">
+                                        <img class="item-img" src="img/1618.png" alt="항목1 이미지">
+                                        <div class="text">
+                                            <span>초광각에 다이나믹을 더하다</span>
+                                            <p>SEL16F18G</p>
+                                        </div><!-- .text end -->
+                                    </div>
+                                </div><!-- .swiper-slide  -->
 
+                            </div><!-- .swiper-wrapper -->
+                            <div class="swiper-pagination"></div>
+                        </div><!-- .sec02-mySwiper -->
+
+
+                        <!-- <div class="item-list">
                             <div class="item" data-img="img/a1hover.png" data-other="img/item1_other.png">
                                 <img class="item-img" src="img/a1.png" alt="항목1 이미지">
                                 <div class="text">
                                     <span>The Perfect 1</span>
                                     <p>α1 II</p>
-                                </div><!-- .text end -->
+                                </div>
                             </div>
                             <div class="item" data-img="img/50150hover.png" data-other="img/50150other.jpg">
                                 <img class="item-img" src="img/50150.png" alt="항목1 이미지">
                                 <div class="text">
                                     <span>F2.0 한계를 뛰어넘다</span>
                                     <p>SEL50150GM</p>
-                                </div><!-- .text end -->
+                                </div>
                             </div>
                             <div class="item" data-img="img/whhover.png" data-other="img/whother.jpg">
                                 <img class="item-img" src="img/wh.png" alt="항목1 이미지">
                                 <div class="text">
                                     <span>나를 높이자 캠페인 실시 중!</span>
                                     <p>WH-1000XM6</p>
-                                </div><!-- .text end -->
+                                </div>
                             </div>
                             <div class="item" data-img="img/a7c2hover.png" data-other="img/a7c2other.jpg">
                                 <img class="item-img" src="img/a7c2.png" alt="항목1 이미지">
                                 <div class="text">
                                     <span>원핸드 컴팩트 풀프레임</span>
                                     <p>ILCE-7CM2</p>
-                                </div><!-- .text end -->
+                                </div>
                             </div>
                             <div class="item" data-img="img/1618hover.png" data-other="img/1618other.jpg">
                                 <img class="item-img" src="img/1618.png" alt="항목1 이미지">
                                 <div class="text">
                                     <span>초광각에 다이나믹을 더하다</span>
                                     <p>SEL16F18G</p>
-                                </div><!-- .text end -->
+                                </div>
                             </div>
-
-                        </div><!-- .item-list end -->
+                        </div> -->
                     </div><!-- .list end -->
 
 
@@ -584,6 +641,16 @@
 
                 </div><!-- .inner end -->
             </section><!-- .section-03 end -->
+
+            <div class="wrapper">
+                <div class="content">
+                    <section class="section hero"></section>
+                </div>
+                <div class="image-container">
+                    <img src="https://assets-global.website-files.com/63ec206c5542613e2e5aa784/643312a6bc4ac122fc4e3afa_main%20home.webp"
+                        alt="image">
+                </div>
+            </div>
 
             <section class="section-04">
                 <div class="inner">
