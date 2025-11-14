@@ -200,6 +200,8 @@ a {
 }
 
 .section .header .inner .inner-02 .box p {
+   
+    align-content: center;
     color: #fff;
 }
 
