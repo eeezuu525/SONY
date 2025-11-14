@@ -200,7 +200,7 @@ a {
 }
 
 .section .header .inner .inner-02 .box p {
-   
+
     align-content: center;
     color: #fff;
 }
@@ -256,7 +256,7 @@ a {
 
 }
 
-.section-01{
+.section-01 {
     height: 120vh;
     /* margin-bottom: 12rem; */
 }
@@ -287,7 +287,7 @@ a {
 
 
 .swiper-pagination-bullet-active {
-    background:  var(--swiper-pagination-color, #f5f5f516);
+    background: var(--swiper-pagination-color, #f5f5f516);
     border: 1.5px solid #ffffff8c;
 }
 
@@ -408,7 +408,7 @@ a {
 
 .section-02 .inner {
     width: 100%;
-   /*  max-width: 1920px; */
+    /*  max-width: 1920px; */
     height: 960px;
     display: flex;
     margin: 0 auto;
@@ -461,13 +461,11 @@ a {
     font-size: 16px;
 }
 
-.section-02 .inner .list .item-list {
-   
-}
+.section-02 .inner .list .item-list {}
 
-.section-02 .inner .list .item-list .swiper-slide{
+.section-02 .inner .list .item-list .swiper-slide {
     width: 350px;
-    flex-shrink: 0; 
+    flex-shrink: 0;
 }
 
 .section-02 .inner .list .item-list::-webkit-scrollbar {
@@ -514,10 +512,11 @@ a {
     font-weight: bold;
 }
 
-.section-02 .swiper-pagination{
+.section-02 .swiper-pagination {
     display: none;
 
 }
+
 .section-03 {
     overflow-x: hidden;
     text-align: center;
@@ -531,6 +530,33 @@ a {
 .section-03 .container {
     margin: auto;
 
+}
+
+.section-03 .container [second_section] button {
+    margin-top: 1rem;
+    display: inline-block;
+    padding: 0.5rem 1.8rem;
+    /* 버튼 여백 */
+    font-size: 1rem;
+    /* 텍스트 크기 */
+    font-weight: 600;
+    color: #ffffff;
+    /* 텍스트 색상 */
+    background: rgba(0, 0, 0, 0.285);
+    /* 소니 메인 컬러 계열 */
+    /* 테두리 */
+    border-radius: 1.5rem;
+    /* 부드러운 둥근 모서리 */
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+.section-03 .container [second_section] button:hover {
+    background: #000000;
+    transform: scale(1.03);
+    
 }
 
 [parallax_section] {
@@ -622,13 +648,13 @@ h1 {
     margin: 0 auto;
 }
 
-.section-04 .inner .item .title .text{
+.section-04 .inner .item .title .text {
     display: flex;
     flex-direction: column;
     gap: 12px;
 }
 
-.section-04 .inner .item .title .text h5{
+.section-04 .inner .item .title .text h5 {
     font-size: 28px;
 }
 
