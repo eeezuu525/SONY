@@ -622,6 +622,16 @@ h1 {
     margin: 0 auto;
 }
 
+.section-04 .inner .item .title .text{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.section-04 .inner .item .title .text h5{
+    font-size: 28px;
+}
+
 
 .section-04 .inner .item:first-child a.image {
     position: relative;
