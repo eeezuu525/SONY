@@ -258,7 +258,7 @@ a {
 
 .section-01{
     height: 100vh;
-    margin-bottom: 12rem;
+    /* margin-bottom: 12rem; */
 }
 
 .section-01 .inner {
