@@ -1,0 +1,11 @@
+@font-face {
+    font-family: 'THEFACESHOP INKLIPQUID';
+    src: url('THEFACESHOP.eot');
+    src: url('THEFACESHOP.eot?#iefix') format('embedded-opentype'),
+        url('THEFACESHOP.woff2') format('woff2'),
+        url('THEFACESHOP.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
