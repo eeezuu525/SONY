@@ -230,11 +230,78 @@
                     el: ".swiper-pagination",
                     clickable: true,
                 },
-           
+
+            });
+
+            gsap.utils.toArray(".section-05 .item").forEach(item => {
+                const textEl = item.querySelector(".text");
+                const imgEl = item.querySelector(".image");
+
+                // 텍스트
+                gsap.from(textEl, {
+                    scrollTrigger: {
+                        trigger: item,
+                        start: "top 80%",
+                        toggleActions: "play reverse play reverse",
+                        once: false,
+                    },
+                    opacity: 0,
+                    y: 50,
+                    duration: 1,
+                    ease: "power2.out"
+                });
+
+                // 이미지
+                gsap.from(imgEl, {
+                    scrollTrigger: {
+                        trigger: item,
+                        start: "top 80%",
+                        toggleActions: "play reverse play reverse",
+                        once: false,
+                    },
+                    opacity: 0,
+                    x: -50, // 왼쪽에서 슬라이드
+                    scale: 0.95, // 약간 작게 시작
+                    duration: 1,
+                    ease: "power2.out",
+                    delay: 0.2 // 텍스트보다 살짝 늦게
+                });
             });
 
 
+            //.footer_top
+            const btn = document.querySelector('.footnotes_label');
+            const footnotes = document.querySelector('.footnotes');
+
+            btn.addEventListener('click', () => {
+                btn.classList.toggle('active');       // 화살표 회전
+                footnotes.classList.toggle('active'); // footnotes 표시/숨김
+            });
+
+
+
+
+            const footerLogo = document.querySelector('.footer_logo');
+
+            footerLogo.addEventListener('pointermove', (e) => {
+                const rect = footerLogo.getBoundingClientRect();
+                let x = ((e.clientX - rect.left) / rect.width) * 100;
+                let y = ((e.clientY - rect.top) / rect.height) * 100;
+
+                footerLogo.style.setProperty('--mouse-x', x + '%');
+                footerLogo.style.setProperty('--mouse-y', y + '%');
+            });
+
+            footerLogo.addEventListener('pointerleave', () => {
+                footerLogo.style.setProperty('--mouse-x', '50%');
+                footerLogo.style.setProperty('--mouse-y', '50%');
+            });
+
+
+
         };
+
+
     </script>
 
 </head>
@@ -628,7 +695,7 @@
                             <div second_section>
                                 <h3>
                                     <span>광활한 빛의 스펙트럼</span>을 한 프레임 속에 구현하다
-                                </h3> 
+                                </h3>
                                 <p>Frame the extraordinary with Sony’s new wide-angle lens</p>
                                 <button>자세히 보기</button>
                             </div>
@@ -767,14 +834,223 @@
 
         </main><!-- my-page.end -->
 
+        <div class="footer_top">
+            <div class="inner">
+                <button type="button" class="footnotes_label">
+                    부가기능
+                </button>
+                <div class="footnotes">
+                    <div class="footnotes_main">
+                        <ul class="main_list">
+                            <li>
+                                <span>1</span>
+                                <span>판매가격은 사전공지 없이 변경될 수 있습니다.</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <ul class="footnotes__list">
+                        <li class="item">
+                          
+                            <span class="itemtext">제품의 색상 및 치수는 실제와 다를 수 있습니다.</span>
+                        </li><!-- .item end -->
+                        <li class="item">
+                          
+                            <span class="itemtext">표시된 제품 컬러 및 기능은 모델 및 국가에 따라 달라질 수 있습니다.</span>
+                        </li><!-- .item end -->
+                        <li class="item">
+                           
+                            <span class="itemtext">4K: 3,840 x 2,160픽셀.</span>
+                        </li><!-- .item end -->
+                        <li class="item">
+                          
+                            <span class="itemtext">거주하는 국가 또는 지역에 따라 사용할 수 없는 기능이 있습니다. 제품에 설치되거나 제품을 통해 액세스할 수있는
+                                소프트웨어/서비스의 일부 또는 전부는 사전 통보없이 변경, 중단, 제거, 일시 중단 또는 해지될 수 있습니다.</span>
+                        </li><!-- .item end -->
+                        <li class="item">
+                           
+                            <span class="itemtext">기능이나 사양은 사전 고지 없이 변경될 수 있습니다.</span>
+                        </li><!-- .item end -->
+                        <li class="item">
+                            
+                            <span class="itemtext">Bluetooth® 워드마크 및 로고는 Bluetooth SIG, Inc. 소유의 등록 상표이며, 소니 및 그 자회사는 해당
+                                마크를 라이선스하에서만 사용합니다.</span>
+                        </li><!-- .item end -->
+                    </ul><!-- .footnotes__list end -->
+
+                </div>
+
+            </div>
+        </div><!-- .footer_top end -->
+
         <footer class="footer">
-            
+            <div class="inner">
+                <div class="footer_nav">
+                    <ul class="gnb">
+                        <li>
+                            <a href="#" class="depth-01">매장 찾기</a>
+                            <ul class="depth-02">
+                                <li>
+                                    <a href="#">직영점 안내</a>
+                                </li>
+                            </ul><!-- .depth-02 end -->
+                        </li>
+                        <li>
+                            <a href="#" class="depth-01">고객지원</a>
+                            <ul class="depth-02">
+                                <li>
+                                    <a href="#">소니코리아 고객지원</a>
+                                </li>
+                                <li>
+                                    <a href="#">소니스토어 고객지원</a>
+                                </li>
+                                <li>
+                                    <a href="#">프로페셔널 제품 지원 및 서비스</a>
+                                </li>
+                                <li>
+                                    <a href="#">매장찾기</a>
+                                </li>
+                            </ul><!-- .depth-02 end -->
+                        </li>
+                        <li>
+                            <a href="#" class="depth-01">제품정보</a>
+                            <ul class="depth-02">
+                                <li>
+                                    <a href="#">소비자 가전</a>
+                                </li>
+                                <li>
+                                    <a href="#">프로페셔널 제품 및 솔루션</a>
+                                </li>
+                            </ul><!-- .depth-02 end -->
+                        </li>
+                        <li>
+                            <a href="#" class="depth-01">뉴스 및 정보</a>
+                            <ul class="depth-02">
+                                <li>
+                                    <a href="#">뉴스/보도지료</a>
+                                </li>
+                                <li>
+                                    <a href="#">Investor Relations</a>
+                                </li>
+                            </ul><!-- .depth-02 end -->
+                        </li>
+                    </ul><!-- .gnb end -->
+                </div><!-- .footer_nav end -->
+                <div class="second">
+                    <div class="contents">
+                        <div class="countryregion">
+                            <a href="#">
+                                <span>대한민국</span>
+                            </a>
+                        </div>
+                        <div class="secondnav">
+                            <ul class="list">
+                                <li>
+                                    <a href="#">회사소개</a>
+                                </li>
+                                <li>
+                                    <a href="#">환경경영</a>
+                                </li>
+                                <li>
+                                    <a href="#">사회공헌</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="info_wrap">
+                    <div class="service_wrap">
+                        <div class="service">
+                            <ul class="list">
+                                <li>
+                                    <a href="#">이용약관</a>
+                                </li>
+                                <li>
+                                    <a href="#">개인정보취급방침</a>
+                                </li>
+                                <li>
+                                    <a href="#">이메일주소무단수집거부</a>
+                                </li>
+                                <li>
+                                    <a href="#">SSL보안인증</a>
+                                </li>
+                            </ul>
+                            <div class="site">
+                                <a href="#">
+                                    <img src="img/site.png" alt="" class="site_base">
+                                    <img src="img/site_hover.png" alt="hover" class="site_hover">
+                                </a>
+
+                            </div><!-- .site end -->
+                            <p class="copyright">COPYRIGHT © 2024 SONY KOREA CORPORATION. ALL RIGHTS RESERVED.</p>
+                        </div><!-- .service end -->
+
+                        <div class="sns">
+                            <li>
+                                <a href="#">
+                                    <img src="icon/YouTube.svg" alt="유튜브" class="sns_base">
+                                    <img src="icon/youtube_hover.svg" alt="유튜브호버" class="sns_hover">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="icon/x.svg" alt="x" class="sns_base">
+                                    <img src="icon/x_hover.svg" alt="x호버" class="sns_hover">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="icon/Instagram.svg" alt="인스타그램" class="sns_base">
+                                    <img src="icon/Instagram_hover.svg" alt="인스타 호버" class="sns_hover">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="icon/b.svg" alt="블로그" class="sns_base">
+                                    <img src="icon/b_hover.svg" alt="블로그 호버" class="sns_hover">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="icon/Facebook.svg" alt="페이스북" class="sns_base">
+                                    <img src="icon/facebook_hover.svg" alt="페이스북 호버" class="sns_hover">
+                                </a>
+                            </li>
+                        </div><!-- .sns end -->
+                    </div>
+
+                    <div class="address">
+                        <ul>
+                            <li>사업장주소 :서울특별시 영등포구 국제금융로 10 투아이에프씨 28F</li>
+                            <li>사업자등록번호 :106-81-23810</li>
+                        </ul>
+                        <ul>
+                            <li>통신판매번호 2012-서울영등포-1038 소니코리아 (주)</li>
+                        </ul>
+                        <ul>
+                            <li>대표이사 : Kitajima Yukihiro</li>
+                            <li>개인정보관리책임자 : Kitajima Yukihiro</li>
+                        </ul>
+                        <ul>
+                            <li>본 사이트의 컨텐츠는 저작권법의 보호를 받는 바, 상업적 목적의 무단전재, 복사, 배포 등을 금합니다.</li>
+                        </ul>
+                        <ul>
+                            <li>TEL : 소니코리아 고객지원센터 1588-0911 E-MAIL : cshelp@sony.co.kr</li>
+                        </ul>
+                    </div><!-- .address end -->
+                </div><!-- info_wrap end -->
+
+            </div><!-- .inner end -->
+
+            <div class="footer_logo">
+                <div class="image">
+                    <img src="logo/sony.svg" alt="푸터로고">
+                </div>
+            </div><!-- .footer_logo end -->
+
         </footer><!-- .footer end -->
 
 
     </section><!-- .section end -->
-
-
 
 
 </body>
